@@ -1,3 +1,4 @@
+export interface Emp { basic: number; housing: number; transport: number; otherAllowances: number; grossPay: number; }
 // ─────────────────────────────────────────────
 //  naija-payroll — PAYE (Pay As You Earn) Engine
 //  Based on Nigerian Personal Income Tax Act 1993
@@ -18,7 +19,6 @@ export interface PayPeriod {
   nhf: number;          // National Housing Fund (7% of basic, capped at ₦250k/yr)
   pension: number;      // Pension contributions (8% of basic)
   lifeAssurance: number; // Annual premium paid
-  disability: boolean;   // Self or dependent with disability
 }
 
 export interface TaxBracket {
@@ -100,12 +100,11 @@ export function calculatePAYE(input: PayPeriod): PAYEResult {
     nhf:              Math.min(input.nhf * 12, NHF_CAP),
     pension:          input.pension * 12,
     lifeAssurance:    input.lifeAssurance,
-    disability:       input.disability,
   };
 
   // ── Gross Income ──
   const grossAnnual = Object.values(annual)
-    .reduce((sum, val) => typeof val === 'number' ? sum + val : sum, 0);
+    .reduce((sum: number, val: number) => sum + val, 0);
 
   // ── Reliefs ──
 
