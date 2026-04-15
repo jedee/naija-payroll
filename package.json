@@ -1,0 +1,29 @@
+{
+  "name": "naija-payroll",
+  "version": "0.1.0",
+  "description": "Accurate Nigerian payroll: PAYE, pension, NHF, reliefs. Zero dependencies.",
+  "type": "module",
+  "main": "./src/paye.ts",
+  "bin": {
+    "naija-payroll": "./src/cli.ts"
+  },
+  "scripts": {
+    "cli": "bun run src/cli.ts",
+    "test": "bun test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ojeh-a/naija-payroll"
+  },
+  "keywords": [
+    "nigerian-payroll",
+    "paye",
+    "tax",
+    "nigeria",
+    "nhf",
+    "pension",
+    "payroll"
+  ],
+  "author": "Jedidiah Ojeh <ojehjedidiah@gmail.com>",
+  "license": "MIT"
+}
